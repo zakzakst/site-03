@@ -1,0 +1,80 @@
+{% extends "_layout/default.njk" %}
+{% set pageData = {
+  title: "サイト03 - 設定ページ",
+  keywords: "キーワード01,キーワード02,キーワード03,キーワード04,キーワード05",
+  description: "ページの概要が入ります。",
+  path: "settings.html",
+  nav: "top",
+  category: "top",
+  barbaName: "top"
+} -%}
+
+{% block head_files -%}
+{{ super() }}
+{%- endblock %}
+
+{% block main_content %}
+<section class="section">
+  <div class="columns is-mobile is-centered">
+    <div class="column is-half">
+
+      <div class="field">
+        <label class="label">名前</label>
+        <div class="control has-icons-left">
+          <input class="input" type="text" placeholder="山田 太郎">
+          <span class="icon is-small is-left">
+            <i class="fas fa-user"></i>
+          </span>
+        </div>
+        <p class="help is-danger">必須項目です。</p>
+      </div>
+
+      <div class="field">
+        <label class="label">キャッチコピー</label>
+        <div class="control">
+          <textarea class="textarea" placeholder="本を読むのが大好きです！"></textarea>
+        </div>
+        <p class="help is-danger">必須項目です。</p>
+      </div>
+
+      <div class="field">
+        <label class="label">自己紹介文</label>
+        <div class="control">
+          <textarea class="textarea" placeholder="# 見出し&#13;&#10;- 項目&#13;&#10;- 項目&#13;&#10;- 項目"></textarea>
+        </div>
+        <p class="help">マークダウンで内容を記載できます</p>
+      </div>
+
+      <div class="field">
+        <label class="label">画像</label>
+        <div class="control">
+          <div class="file">
+            <label class="file-label">
+              <input class="file-input" type="file" name="resume">
+              <span class="file-cta">
+                <span class="file-icon">
+                  <i class="fas fa-upload"></i>
+                </span>
+                <span class="file-label">
+                  Choose a file…
+                </span>
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="field">
+        <div class="control">
+          <button class="button is-primary">登録</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block foot_files -%}
+{{ super() }}
+{%- endblock %}

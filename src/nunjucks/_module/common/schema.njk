@@ -6,7 +6,7 @@
         "@type": "ListItem",
         "position": 1,
         "item": {
-          "@id": "{{ siteData.url }}",
+          "@id": "{{ siteData.domain }}",
           "name": "{{ siteData.name }}"
         }
       },
@@ -14,7 +14,7 @@
         "@type": "ListItem",
         "position": 2,
         "item": {
-          "@id": "{{ pageData.url }}",
+          "@id": "{{ siteData.domain }}{{ siteData.rootPath }}{{ pageData.path }}",
           "name": "{{ pageData.title }}"
         }
       }
