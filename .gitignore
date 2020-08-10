@@ -1,0 +1,4 @@
+node_modules
+dist
+src/nunjucks/_module/common/site-data.json
+src/js/_module/firebase-config.js

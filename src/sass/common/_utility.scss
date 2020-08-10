@@ -1,0 +1,10 @@
+.container--text-content {
+  max-width: $text-content-width;
+}
+
+.tablet-column {
+  @media screen and (max-width: $breakpoint-md) {
+    max-width: $tablet-column-width;
+    margin: 0 auto;
+  }
+}

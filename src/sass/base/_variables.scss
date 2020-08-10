@@ -1,0 +1,16 @@
+// z-indexの数値
+$z-go-top: 100 !default;
+$z-header-nav: 101 !default;
+$z-gallery-modal: 1000 !default;
+$z-page-overlay: 10000 !default;
+
+// ブレークポイント
+$breakpoint-sm: 480px !default;
+$breakpoint-md: 768px !default;
+$breakpoint-lg: 1024px !default;
+
+// タブレット時のシングルカラム幅
+$tablet-column-width: 480px !default;
+
+// 文章メインのページのカラム幅
+$text-content-width: 800px !default;

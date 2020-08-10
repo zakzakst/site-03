@@ -1,0 +1,22 @@
+$header-bg-color: #fff;
+$header-active-color: #3273dc;
+
+.header__navbar {
+  background-color: rgba($header-bg-color, 0);
+  z-index: $z-header-nav;
+  transition: background-color .4s;
+  &.is-show-bg {
+    background-color: rgba($header-bg-color, .75);
+  }
+  &.is-open {
+    background-color: rgba($header-bg-color, 1);
+    transition: background-color 0s;
+  }
+  .navbar-item {
+    &.is-active {
+      @media screen and (min-width: $breakpoint-lg) {
+        color: $header-active-color;
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+<header>
+  <nav class="header__navbar navbar is-transparent is-fixed-top" id="js-header__navbar" role="navigation" aria-label="ヘッダーナビゲーション">
+    <div class="container">
+      <div class="navbar-brand">
+        <!-- ロゴ画像 -->
+        <a class="navbar-item" href="/">
+          <img src="/img/common/logo.png">
+        </a>
+        <!-- ハンバーガーメニュー（スマホ時のみ） -->
+        <a role="button" class="navbar-burger" id="js-header__navbar-button">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <!-- メニュー -->
+      <div class="navbar-menu" id="js-header__navbar-menu">
+        <div class="navbar-end">
+          {%- for navItem in siteData.navList -%}
+          <a class="navbar-item{{ ' is-active' if navItem.name == pageData.nav }}" href="{{ navItem.path }}" data-link-name="{{ navItem.name }}">{{ navItem.name }}</a>
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>

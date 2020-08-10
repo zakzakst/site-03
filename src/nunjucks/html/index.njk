@@ -1,0 +1,23 @@
+{% extends "_layout/single.njk" %}
+{% set pageData = {
+  title: "ページタイトル",
+  keywords: "キーワード",
+  description: "概要",
+  url: "https://xxxx.com/page.html",
+  nav: "top",
+  category: "top",
+  barbaName: "top"
+} -%}
+
+{% block head_files -%}
+{{ super() }}
+<link rel="stylesheet" href="/css/top.css">
+{%- endblock %}
+
+{% block main_content %}
+{% include '_module/page/top-content.njk' %}
+{% endblock %}
+
+{% block foot_files -%}
+{{ super() }}
+{%- endblock %}

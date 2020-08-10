@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <!-- メタデータ -->
+  {% include '../_module/common/meta.njk' %}
+
+  <!-- 読み込みファイル -->
+  {% block head_files -%}
+  {% include '../_module/common/head-files.njk' %}
+  {%- endblock %}
+
+  <!-- 構造化データ -->
+  {% include '../_module/common/schema.njk' %}
+
+  <!-- ロード画面関連の記述 -->
+  {% include '../_module/common/page-loader-head.njk' %}
+</head>
+
+<body data-barba="wrapper">
+  <!-- ロード画面 -->
+  {% include '../_module/common/page-loader.njk' %}
+
+  <!-- ヘッダー -->
+  {% include '../_module/common/header.njk' %}
+  {% include '../_module/hero.njk' %}
+
+  <div class="container" data-barba="container" data-barba-namespace="{{ pageData.barbaName }}">
+    <!-- メインコンテンツ -->
+    {% block main_content %}
+    {% endblock %}
+  </div>
+
+  <!-- フッター -->
+  {% include '../_module/common/footer.njk' %}
+
+  <!-- トップへ戻る -->
+  {% include '../_module/common/go-top.njk' %}
+
+  <!-- ページ遷移画面 -->
+  {% include '../_module/common/page-transition.njk' %}
+
+  <!-- 読み込みファイル -->
+  {% block foot_files -%}
+    {% include '../_module/common/foot-files.njk' %}
+  {%- endblock %}
+</body>
+</html>

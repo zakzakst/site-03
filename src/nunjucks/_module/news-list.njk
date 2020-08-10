@@ -1,0 +1,15 @@
+{% macro normal(newsData) -%}
+<div class="columns news-list">
+{%- for item in newsData -%}
+  <div class="column is-one-third content tablet-column">
+    <a href="{{ item.link }}">
+      <p class="image is-2by1">
+        <img src="{{ item.img }}" alt="{{ item.alt }}">
+        <p class="title is-4">{{ item.title }}</p>
+        <p class="subtitle is-6">{{ item.text }}</p>
+      </p>
+    </a>
+  </div>
+{%- endfor -%}
+</div>
+{%- endmacro %}

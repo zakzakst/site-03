@@ -1,0 +1,5 @@
+.columns.columns--default {
+  @media screen and (max-width: $breakpoint-lg - 1) {
+    display: block;
+  }
+}
