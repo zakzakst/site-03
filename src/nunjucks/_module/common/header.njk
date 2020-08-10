@@ -3,8 +3,8 @@
     <div class="container">
       <div class="navbar-brand">
         <!-- ロゴ画像 -->
-        <a class="navbar-item" href="/">
-          <img src="/img/common/logo.png">
+        <a class="navbar-item" href="/{{ siteData.rootPath }}">
+          <img src="/{{ siteData.rootPath }}img/common/logo.png">
         </a>
         <!-- ハンバーガーメニュー（スマホ時のみ） -->
         <a role="button" class="navbar-burger" id="js-header__navbar-button">
@@ -16,9 +16,10 @@
       <!-- メニュー -->
       <div class="navbar-menu" id="js-header__navbar-menu">
         <div class="navbar-end">
-          {%- for navItem in siteData.navList -%}
-          <a class="navbar-item{{ ' is-active' if navItem.name == pageData.nav }}" href="{{ navItem.path }}" data-link-name="{{ navItem.name }}">{{ navItem.name }}</a>
-          {%- endfor -%}
+          <a class="navbar-item" href="/{{ siteData.rootPath }}">トップページ</a>
+          <a class="navbar-item" href="/{{ siteData.rootPath }}login.html">ログインページ</a>
+          <a class="navbar-item" href="/{{ siteData.rootPath }}mypage.html">マイページ</a>
+          <a class="navbar-item" href="/{{ siteData.rootPath }}settings.html">設定</a>
         </div>
       </div>
     </div>

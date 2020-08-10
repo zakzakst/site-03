@@ -1,0 +1,55 @@
+{% extends "_layout/default.njk" %}
+{% set pageData = {
+  title: "サイト03 - ログインページ",
+  keywords: "キーワード01,キーワード02,キーワード03,キーワード04,キーワード05",
+  description: "ページの概要が入ります。",
+  path: "login.html",
+  nav: "top",
+  category: "top",
+  barbaName: "top"
+} -%}
+
+{% block head_files -%}
+{{ super() }}
+{%- endblock %}
+
+{% block main_content %}
+<section class="section">
+  <div class="columns is-mobile is-centered">
+    <div class="column is-half">
+
+      <div class="field">
+        <label class="label">メールアドレス</label>
+        <div class="control has-icons-left">
+          <input class="input" type="email" placeholder="sample@mail.com">
+          <span class="icon is-small is-left">
+            <i class="fas fa-envelope"></i>
+          </span>
+        </div>
+        <p class="help is-danger">必須項目です。</p>
+      </div>
+
+      <div class="field">
+        <label class="label">パスワード</label>
+        <div class="control has-icons-left">
+          <input class="input" type="password">
+          <span class="icon is-small is-left">
+            <i class="fas fa-lock"></i>
+          </span>
+        </div>
+        <p class="help is-danger">必須項目です。</p>
+      </div>
+
+      <div class="field">
+        <div class="control">
+          <button class="button is-primary">ログイン</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block foot_files -%}
+{{ super() }}
+{%- endblock %}

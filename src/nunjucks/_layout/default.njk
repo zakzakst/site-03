@@ -22,28 +22,18 @@
 
   <!-- ヘッダー -->
   {% include '../_module/common/header.njk' %}
-  {% include '../_module/hero.njk' %}
 
-  <div class="container" data-barba="container" data-barba-namespace="{{ pageData.barbaName }}">
-    <div class="columns columns--default">
-      <div class="column is-three-quarter-desktop">
-        <!-- メインコンテンツ -->
-        {% block main_content %}
-        {% endblock %}
-      </div>
-      <div class="column is-one-quarter-desktop">
-        <!-- サイドバー -->
-        {%- import '../_module/common/sidebar.njk' as sidebar -%}
-        {{ sidebar.sidebar(pageData.category) }}
-      </div>
+  <div data-barba="container">
+    {% include '../_module/hero.njk' %}
+    <div class="container" data-barba-namespace="{{ pageData.barbaName }}">
+      <!-- メインコンテンツ -->
+      {% block main_content %}
+      {% endblock %}
     </div>
   </div>
 
   <!-- フッター -->
   {% include '../_module/common/footer.njk' %}
-
-  <!-- トップへ戻る -->
-  {% include '../_module/common/go-top.njk' %}
 
   <!-- ページ遷移画面 -->
   {% include '../_module/common/page-transition.njk' %}
