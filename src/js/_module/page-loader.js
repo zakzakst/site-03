@@ -1,12 +1,14 @@
-import $ from 'jquery';
+import { gsap } from "gsap";
 
 export function pageLoader() {
-  const el = $('#js-page-loader');
-  if(!el) {return;}
-  const speed = 400;
-  const delay = 400;
-
-  $(window).on('load', () => {
-    el.delay(delay).fadeOut(speed);
-  });
+  window.onload = () => {
+    const el = document.getElementById('js-page-loader');
+    gsap.to(el, {
+      duration: .5,
+      opacity: 0,
+      onComplete: () => {
+        el.parentNode.removeChild(el);
+      }
+    });
+  }
 }

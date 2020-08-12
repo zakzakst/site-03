@@ -3,7 +3,7 @@
   title: "サイト03 - ログインページ",
   keywords: "キーワード01,キーワード02,キーワード03,キーワード04,キーワード05",
   description: "ページの概要が入ります。",
-  path: "login.html",
+  path: "signin.html",
   nav: "top",
   category: "top",
   barbaName: "top"
@@ -43,6 +43,7 @@
       <div class="field">
         <div class="control">
           <button class="button is-primary">ログイン</button>
+          <button class="button is-primary" id="js-login-test">テスト</button>
         </div>
       </div>
     </div>
@@ -52,4 +53,5 @@
 
 {% block foot_files -%}
 {{ super() }}
+<script src="/{{ siteData.rootPath }}js/signin.js"></script>
 {%- endblock %}
