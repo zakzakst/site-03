@@ -31,6 +31,8 @@
   "dependencies": {
     "@barba/core": "^2.9.7",
     "bulma": "^0.8.2",
+    "firebase": "^7.17.2",
+    "gsap": "^3.4.2",
     "jquery": "^3.5.1"
   }
 }

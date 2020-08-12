@@ -21,7 +21,10 @@
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   setTimeout(() => {
-    document.getElementById('js-page-loader').style.display = 'none';
+    var loaderEl = document.getElementById('js-page-loader');
+    if(loaderEl) {
+      loaderEl.style.display = 'none';
+    }
   }, 10000);
 }, false);
 </script>

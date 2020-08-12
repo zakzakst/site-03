@@ -4,6 +4,9 @@ module.exports = {
   entry: {
     script: './src/js/script.js',
     top: './src/js/top.js',
+    mypage: './src/js/mypage.js',
+    signin: './src/js/signin.js',
+    settings: './src/js/settings.js',
   },
   output: {
     path: `${__dirname}/dist/js`,

@@ -23,13 +23,11 @@
   <!-- ヘッダー -->
   {% include '../_module/common/header.njk' %}
 
-  <div data-barba="container">
-    {% include '../_module/hero.njk' %}
-    <div class="container" data-barba-namespace="{{ pageData.barbaName }}">
-      <!-- メインコンテンツ -->
-      {% block main_content %}
-      {% endblock %}
-    </div>
+  {% include '../_module/hero.njk' %}
+  <div class="container">
+    <!-- メインコンテンツ -->
+    {% block main_content %}
+    {% endblock %}
   </div>
 
   <!-- フッター -->
