@@ -1,68 +1,48 @@
-export function headerScripts() {}
-// import $ from 'jquery';
+export function headerScripts() {
+  const headerMenu = new HeaderMenu();
+  headerMenu.init();
+}
 
-// export function headerScripts() {
-//   const el = $('#js-header__navbar');
-//   if(!el) {return;}
-//   const menu = $('#js-header__navbar-menu');
-//   const button = $('#js-header__navbar-button');
-//   const speed = 400;
-
-//   addEventToggleMenu();
-//   addEventRisizeReset();
-//   addObserverHederBg();
-
-//   function addEventToggleMenu() {
-//     button.on('click', (e) => {
-//       e.preventDefault();
-//       if(el.hasClass('is-open')) {
-//         menuClose();
-//       } else {
-//         menuOpen();
-//       }
-//     });
-//   }
-
-//   function addEventRisizeReset() {
-//     $(window).resize(() => {
-//       menuClear();
-//     });
-//   }
-
-//   function menuOpen() {
-//     menu.slideDown(speed);
-//     el.addClass('is-open');
-//     button.addClass('is-active');
-//   }
-
-//   function menuClose() {
-//     menu.slideUp(speed, () => {
-//       el.removeClass('is-open');
-//       button.removeClass('is-active');
-//     });
-//   }
-
-//   function menuClear() {
-//     menu.css('display', '');
-//     el.removeClass('is-open');
-//     button.removeClass('is-active');
-//   }
-
-//   function addObserverHederBg() {
-//     const options = {
-//       root: null,
-//       rootMargin: '2% 0px -102%',
-//       threshold: 0
-//     }
-//     const observer = new IntersectionObserver((entries) => {
-//       entries.forEach(entry => {
-//         if (entry.isIntersecting) {
-//           el.addClass('is-show-bg');
-//         } else {
-//           el.removeClass('is-show-bg');
-//         }
-//       });
-//     }, options);
-//     observer.observe(document.body);
-//   }
-// }
+class HeaderMenu {
+  constructor() {
+    this.headerEl = document.getElementById('js-header__navbar');
+    this.headerMenuBtn = document.getElementById('js-header__navbar-button');
+  }
+  init() {
+    this.headerMenuHandler();
+    this.headerBgHandler();
+  }
+  headerMenuOpen() {
+    this.headerEl.classList.add('is-open');
+  }
+  headerMenuClose() {
+    this.headerEl.classList.remove('is-open');
+  }
+  headerMenuHandler() {
+    this.headerMenuBtn.addEventListener('click', e => {
+      e.preventDefault();
+      if(this.headerEl.classList.contains('is-open')) {
+        this.headerMenuClose();
+      } else {
+        this.headerMenuOpen();
+      }
+    });
+  }
+  headerBgHandler() {
+    const options = {
+      root: null,
+      rootMargin: '1% 0px -101%',
+      threshold: 0
+    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          this.headerEl.classList.add('is-show-bg');
+        } else {
+          this.headerEl.classList.remove('is-show-bg');
+        }
+      });
+    }, options);
+    observer.observe(document.body);
+  }
+}
