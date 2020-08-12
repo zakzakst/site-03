@@ -11,6 +11,9 @@ $header-active-color: #3273dc;
   &.is-open {
     background-color: rgba($header-bg-color, 1);
     transition: background-color 0s;
+    .navbar-menu {
+      display: block;
+    }
   }
   .navbar-item {
     &.is-active {
