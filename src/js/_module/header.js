@@ -1,16 +1,15 @@
-export function headerScripts() {
-  const headerMenu = new HeaderMenu();
-  headerMenu.init();
-}
+import fireApp from './firebase';
 
 class HeaderMenu {
   constructor() {
     this.headerEl = document.getElementById('js-header__navbar');
     this.headerMenuBtn = document.getElementById('js-header__navbar-button');
+    this.headerSignout = document.getElementById('js-header__signout');
   }
   init() {
     this.headerMenuHandler();
     this.headerBgHandler();
+    this.headerSignoutHandler();
   }
   headerMenuOpen() {
     this.headerEl.classList.add('is-open');
@@ -45,4 +44,24 @@ class HeaderMenu {
     }, options);
     observer.observe(document.body);
   }
+  signOut() {
+    fireApp.auth().signOut()
+      .then(() => {
+        console.log('サインアウト');
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+  headerSignoutHandler() {
+    this.headerSignout.addEventListener('click', e => {
+      e.preventDefault();
+      this.signOut();
+    });
+  }
+}
+
+export function headerScripts() {
+  const headerMenu = new HeaderMenu();
+  headerMenu.init();
 }
