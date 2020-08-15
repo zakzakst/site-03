@@ -12,18 +12,13 @@
 {%- endblock %}
 
 {% block main_content %}
-<section class="section">
+<section class="section content">
   <figure class="image is-128x128">
-    <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+    <img id="js-mypage-img" class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
   </figure>
-  <h1>山田 太郎</h1>
-  <p>テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
-  <div>
-    <h2>自己紹介文</h2>
-    <p>テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
-    <p>テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
-    <p>テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</p>
-  </div>
+  <h1 id="js-mypage-name"></h1>
+  <p id="js-mypage-message"></p>
+  <div id="js-mypage-text"></div>
 </section>
 {% endblock %}
 

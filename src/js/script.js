@@ -5,7 +5,6 @@ import { AuthCheck } from './_module/auth-check';
 (function() {
   headerScripts();
   pageLoader();
-  // authCheck();
   const authCheck = new AuthCheck();
   authCheck.init();
 })();
