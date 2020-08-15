@@ -5,7 +5,8 @@ const browsersync = require("browser-sync").create();
 function server(done) {
   browsersync.init({
     server: {
-      baseDir: "./dist"
+      baseDir: "./dist",
+      // index  : "signin.html"
     }
   });
   done();

@@ -1,15 +1,18 @@
-import fireApp from './firebase';
+import { AuthCheck } from './auth-check';
 
 class HeaderMenu {
   constructor() {
     this.headerEl = document.getElementById('js-header__navbar');
     this.headerMenuBtn = document.getElementById('js-header__navbar-button');
     this.headerSignout = document.getElementById('js-header__signout');
+    this.headerMyPage = document.getElementById('js-header__mypage');
+    this.authCheck = new AuthCheck();
   }
   init() {
     this.headerMenuHandler();
     this.headerBgHandler();
     this.headerSignoutHandler();
+    this.headerMyPageHandler();
   }
   headerMenuOpen() {
     this.headerEl.classList.add('is-open');
@@ -44,19 +47,20 @@ class HeaderMenu {
     }, options);
     observer.observe(document.body);
   }
-  signOut() {
-    fireApp.auth().signOut()
-      .then(() => {
-        console.log('サインアウト');
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }
   headerSignoutHandler() {
     this.headerSignout.addEventListener('click', e => {
       e.preventDefault();
-      this.signOut();
+      this.authCheck.signOut();
+    });
+  }
+  headerMyPageHandler() {
+    this.headerMyPage.addEventListener('click', e => {
+      const id = this.authCheck.getIdStorage();
+      if(id) {
+        e.preventDefault();
+        const href = e.target.getAttribute('href');
+        location.href = `${href}?id=${id}`;
+      }
     });
   }
 }
