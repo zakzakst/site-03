@@ -23,3 +23,21 @@ $header-active-color: #3273dc;
     }
   }
 }
+
+
+.page-link--mypage,
+.page-link--settings,
+.page-link--signout {
+  display: none;
+}
+
+.is-signin {
+  .page-link--signin {
+    display: none;
+  }
+  .page-link--mypage,
+  .page-link--settings,
+  .page-link--signout {
+    display: inherit;
+  }
+}
