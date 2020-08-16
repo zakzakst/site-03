@@ -15,7 +15,6 @@ class SignInClass {
   signIn(email, password) {
     fireApp.auth().signInWithEmailAndPassword(email, password)
       .then(() => {
-        console.log('サインイン');
         location.href = `./${this.topPageName}`;
       })
       .catch(error => {
@@ -32,7 +31,15 @@ class SignInClass {
   signUp(email, password) {
     fireApp.auth().createUserWithEmailAndPassword(email, password)
       .then(data => {
-        console.log(data);
+        const id = data.user.uid;
+        const userData = {
+          name: '',
+          message: '',
+          text: '',
+        };
+        return fireApp.database().ref(`site-03/data/${id}`).set(userData);
+      })
+      .then(() => {
         console.log('サインアップ');
         location.href = `./${this.topPageName}`;
       })
