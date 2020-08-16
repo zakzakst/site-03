@@ -71,6 +71,7 @@ class SettingsClass {
           name: this.nameInput.value,
           message: this.messageInput.value,
           text: this.textInput.value,
+          updatedAt: Date.now(),
         },
         storage: {
           img: this.imgInput.files[0],
