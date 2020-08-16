@@ -15,33 +15,39 @@
 <section class="section">
   <div class="columns is-mobile is-centered">
     <div class="column is-half">
+      <div class="tabs is-fullwidth">
+        <ul>
+          <li class="js-signin-tab is-active"><a href="#js-signin-btn">サインイン</a></li>
+          <li class="js-signin-tab"><a href="#js-signup-btn">新規登録</a></li>
+        </ul>
+      </div>
 
       <div class="field">
         <label class="label">メールアドレス</label>
         <div class="control has-icons-left">
-          <input class="input" type="email" placeholder="sample@mail.com" id="js-signin-input-email" value="fortest1@mail.co.jp">
+          <input class="input" type="email" placeholder="sample@mail.com" id="js-signin-input-email">
           <span class="icon is-small is-left">
             <i class="fas fa-envelope"></i>
           </span>
         </div>
-        <p class="help is-danger">必須項目です。</p>
+        {# <p class="help is-danger">必須項目です。</p> #}
       </div>
 
       <div class="field">
         <label class="label">パスワード</label>
         <div class="control has-icons-left">
-          <input class="input" type="password" id="js-signin-input-password" value="password">
+          <input class="input" type="password" id="js-signin-input-password">
           <span class="icon is-small is-left">
             <i class="fas fa-lock"></i>
           </span>
         </div>
-        <p class="help is-danger">必須項目です。</p>
+        {# <p class="help is-danger">必須項目です。</p> #}
       </div>
 
       <div class="field">
         <div class="control">
-          <button class="button is-primary" id="js-signin-btn">サインイン</button>
-          <button class="button is-primary" id="js-signup-btn">新規登録</button>
+          <button class="js-signin-btn button is-primary" id="js-signin-btn">サインイン</button>
+          <button class="js-signin-btn button is-primary" id="js-signup-btn">新規登録</button>
         </div>
       </div>
     </div>

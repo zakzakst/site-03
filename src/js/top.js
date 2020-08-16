@@ -9,7 +9,6 @@ class TopClass {
     this.defaultImg = 'https://bulma.io/images/placeholders/96x96.png';
   }
   init() {
-    console.log('top page');
     this.showTopData();
   }
   getTopData() {
@@ -35,8 +34,8 @@ class TopClass {
       });
       // 配列を名前順にソート
       dataArr.sort((a, b) => {
-        if(a.name < b.name) return -1;
-        if(a.name > b.name) return 1;
+        if(a.updatedAt < b.updatedAt) return 1;
+        if(a.updatedAt > b.updatedAt) return -1;
         return 0;
       });
       // 各アイテムをユーザー一覧に追加
@@ -47,6 +46,7 @@ class TopClass {
   }
   addUserItem(data) {
     const limitedMessage = data.message.length > this.messageLimit ? data.message.substring(0, this.messageLimit) + '…' : data.message;
+    const updateStr = new Date(data.updatedAt).toLocaleString();
     const html = `
       <div class="column is-one-third">
         <div class="card">
@@ -64,6 +64,7 @@ class TopClass {
             </div>
             <div class="content">
               <p>${limitedMessage}</p>
+              <p class="is-size-7">${updateStr} 更新</p>
             </div>
           </div>
         </a>
@@ -77,6 +78,9 @@ class TopClass {
       .then(url => {
         const userImgEl = document.getElementById(`js-user-img-${data.id}`);
         userImgEl.setAttribute('src', url);
+      })
+      .catch(error => {
+        console.log(error);
       });
   }
 }
