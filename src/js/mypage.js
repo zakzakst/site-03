@@ -7,6 +7,7 @@ class MyPageClass {
     this.messageEl = document.getElementById('js-mypage-message');
     this.textEl = document.getElementById('js-mypage-text');
     this.imgEl = document.getElementById('js-mypage-img');
+    this.defaultImg = 'https://bulma.io/images/placeholders/96x96.png';
     this.id = '';
     const params = location.search.substring(1).split('&');
     for(let i = 0; i < params.length; i++) {
@@ -33,16 +34,26 @@ class MyPageClass {
     });
     return result;
   }
-  // async showPageData() {
   showPageData() {
     // 内容を表示
-    // const pageData = await this.getPageData();
+    // データベースの表示
     this.getPageData().then(pageData => {
       this.nameEl.textContent = pageData.name;
       this.messageEl.textContent = pageData.message;
       this.textEl.innerHTML = marked(pageData.text);
-      this.imgEl.setAttribute('src', pageData.img);
     });
+    // ストレージの表示
+    let imgUrl = '';
+    fireApp.storage().ref().child(`site03/${this.id}/img`).getDownloadURL()
+      .then(url => {
+        imgUrl = url;
+      })
+      .catch(error => {
+        imgUrl = this.defaultImg;
+      })
+      .finally(() => {
+        this.imgEl.setAttribute('src', imgUrl);
+      });
   }
 }
 
